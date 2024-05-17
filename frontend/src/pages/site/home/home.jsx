@@ -1,20 +1,20 @@
+import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
+import MainContext from "../../../context/context";
+import SimpleSlider from "../../../components/site/Slider/Slider";
+import Reservation from "../../../components/site/Reservation/Reservation";
 
-    import React, { useContext } from 'react'
-    import { Helmet } from 'react-helmet'
-    import MainContext from '../../../context/context'
-    
-    const Home = () => {
-        const {data,setdata} = useContext(MainContext)
-        return (
-        <>
-                <Helmet>
-                    <title>Home</title>
-                </Helmet>
-                <div>Home page
-                </div>
-        </>
-        )
-    }
-    
-    export default Home
-        
+const Home = () => {
+  const { data, setdata } = useContext(MainContext);
+  return (
+    <>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
+      {/* <SimpleSlider /> */}
+      <Reservation/>
+    </>
+  );
+};
+
+export default Home;

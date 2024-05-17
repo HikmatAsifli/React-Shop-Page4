@@ -1,0 +1,11 @@
+a {
+  color: black !important;
+}
+.logo {
+  width: 100px;
+  border: 1px solid black !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: white !important; */
+}

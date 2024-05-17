@@ -1,0 +1,28 @@
+.reservation {
+    background: #ffb400;
+}
+form.reserv{
+    width: 100%;
+    .form-control {
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: transparent;
+        background: transparent !important;
+        color: #404044 !important;
+        border: 1px solid black;
+        border-radius: 0px !important;
+        font-size: 16px;
+        width: 16% !important;
+        height: 52px;
+    }
+    .form-control.button{
+        background-color: #fff !important;
+        border-color: #fff !important;
+    }
+}
+.search-btn{
+    background-color: #fff !important;
+    border-color: #fff !important;
+    color: black !important;
+    border-radius: 0px !important;
+}
