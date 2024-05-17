@@ -3,6 +3,7 @@ import ROUTES from "./Routes/routes";
 import MainContext from "./context/context";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css"
 
 function App() {
   const [loading, setLoading] = useState(true);
