@@ -5,6 +5,7 @@ import SimpleSlider from "../../../components/site/Slider/Slider";
 import Reservation from "../../../components/site/Reservation/Reservation";
 import Instagram from "../../../components/site/Instagram/Instagram";
 import Blog from "../../../components/site/Blog/Blog";
+import Testomional from "../../../components/site/Testomional/Testomional";
 
 const Home = () => {
   const { data, setdata } = useContext(MainContext);
@@ -14,9 +15,10 @@ const Home = () => {
         <title>Home</title>
       </Helmet>
       {/* <SimpleSlider /> */}
-      <Reservation/>
-      <Blog/>
-      <Instagram/>
+      <Reservation />
+      <Testomional />
+      <Blog />
+      <Instagram />
     </>
   );
 };
