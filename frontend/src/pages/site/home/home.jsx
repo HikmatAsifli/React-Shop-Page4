@@ -6,16 +6,21 @@ import Reservation from "../../../components/site/Reservation/Reservation";
 import Instagram from "../../../components/site/Instagram/Instagram";
 import Blog from "../../../components/site/Blog/Blog";
 import Testomional from "../../../components/site/Testomional/Testomional";
+import Hero from "../../../components/site/Hero/Hero";
+import About from "../../../components/site/About/About";
+import Menu from "../../../components/site/Menu/Menu";
 
 const Home = () => {
-  const { data, setdata } = useContext(MainContext);
+  const { data, setData } = useContext(MainContext);
   return (
     <>
       <Helmet>
         <title>Home</title>
       </Helmet>
-      {/* <SimpleSlider /> */}
+      <Hero />
       <Reservation />
+      <About/>
+      <Menu/>
       <Testomional />
       <Blog />
       <Instagram />

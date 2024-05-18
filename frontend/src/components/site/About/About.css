@@ -1,0 +1,19 @@
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 70px;
+    gap: 50px;
+}
+.aboutText{
+    display: flex;  justify-content: start;    align-items: start;    
+    flex-direction: column;
+    gap: 30px;
+}
+.aboutText span{
+    color: gray;
+    font-size: 14px;
+}
+.aboutText h3{
+    font-size: 50px;
+}

@@ -4,7 +4,7 @@ const cors = require("cors")
 const app = express()
 app.use(express.json())
 app.use(cors())
-require("dotenv").config()
+const port=5000
 const productSchema = mongoose.Schema({
     title: {
         type: String,
@@ -12,50 +12,46 @@ const productSchema = mongoose.Schema({
     },
     price: {
         type: Number,
-        required: false
+        required: true
     },
     image: {
         type: String,
         required: true
     }
-}, {
-    timestamps: true
 })
 const Products = mongoose.model("Product", productSchema)
-//get all products
-app.get("/api/products", async (req, res) => {
+
+app.get("/products", async (req, res) => {
     const response = await Products.find()
     res.send(response)
 })
-//get product by id
-app.get("/api/products/:id", async (req, res) => {
+app.get("/products/:id", async (req, res) => {
     const { id } = req.params
     const target = await Products.findById(id)
     res.send(target)
 })
-//delete product
-app.delete("/api/products/:id", async (req, res) => {
+
+app.delete("/products/:id", async (req, res) => {
     const { id } = req.params
     await Products.findByIdAndDelete(id)
     res.send("item deleted")
 })
-//add new product
-app.post("/api/products", async (req, res) => {
+
+app.post("/products", async (req, res) => {
     const { title, price, image } = req.body
     const newProd = new Products({ title: title, price: price, image: image })
     await newProd.save()
     res.status(201).send("item created")
 })
-//edit product
-app.put("/api/products/:id", async (req, res) => {
+
+app.put("/products/:id", async (req, res) => {
     const { id } = req.params
     const { title, price, image } = req.body
     await Products.findByIdAndUpdate(id, { ...req.body })
     res.send("item updated")
 })
-mongoose.connect(process.env.CONNECTION_STRING).then(res => {
-    console.log("db connected")
-})
-app.listen(process.env.PORT, (req, res) => {
-    console.log("api running on 8080")
+mongoose.connect("mongodb+srv://Hikmat:Hikmat@cluster0.ct5lqxj.mongodb.net/").then(res => {
+    console.log("db connected")})
+app.listen(port, (req, res) => {
+    console.log("api running on 5000")
 })
