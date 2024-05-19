@@ -1,44 +1,58 @@
-import React, { useContext } from 'react'
-import MainContext from '../../../context/context'
+import React, { useContext, useEffect } from 'react'
+import MainContext from '../../../context/context';
+import axios from 'axios';
+import "./Products.css"
+import { BASE_URL } from '../../../config/config';
 
 const Products = () => {
     const { data, setData } = useContext(MainContext)
-    const deleteItem = (id) => {
-        axios.delete(`http://localhost:5000/products/${id}`).then(res => {
-            setData([...res.data])
+
+    function deleteItem(id) {
+
+        axios.delete(`${BASE_URL}${id}`).then((res) => {
+            setData([...data.filter((item) => item._id != id)])
         })
     }
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Delete</th>
+        <table class=" mt-5  container table table-hover table-dark table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data.map((item, index) => (
+                    <tr key={index}>
+                        <th scope="row">{index + 1}</th>
+                        <td>
+                            <img src={item.image} alt="" width="100px" height="100px" />
+                        </td>
+                        <td>{item.title}</td>
+                        <td>{item.category}</td>
+
+                        <td>{item.description}</td>
+
+                        <td>{item.price}$</td>
+                        <td>
+                            <button
+                                onClick={() => {
+                                    deleteItem(item._id);
+                                }}
+                                className="btn btn-danger "
+                            >
+                                delete
+                            </button>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {
-                        data.map((item, index) => {
-                            return (
-                                <tr key={index} item={item}>
-                                    <td>{item._id}</td>
-                                    <td><img width={"60px"} src={item.image} alt="" /></td>
-                                    <td>{item.title}</td>
-                                    <td>{item.price}</td>
-                                    <td><button onClick={() => {
-                                        deleteItem(item._id)
-                                    }} style={{ padding: "10px", background: "red", color: "white", borderRadius: "10px", border: "10px" }}>Delete</button></td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
-        </div>
+                ))}
+            </tbody>
+        </table>
     )
 }
 

@@ -6,11 +6,3 @@
     flex-direction: column;
     gap: 30px;
 }
-.cardspawn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding-bottom:50px ;
-}
