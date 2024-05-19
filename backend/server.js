@@ -50,7 +50,7 @@ app.put("/products/:id", async (req, res) => {
     await Products.findByIdAndUpdate(id, { ...req.body })
     res.send("item updated")
 })
-mongoose.connect("mongodb+srv://Hikmat:Hikmat@cluster0.ct5lqxj.mongodb.net/").then(res => {
+mongoose.connect("mongodb+srv://Hikmat:hikmat2004@cluster0.ct5lqxj.mongodb.net/").then(res => {
     console.log("db connected")})
 app.listen(port, (req, res) => {
     console.log("api running on 5000")

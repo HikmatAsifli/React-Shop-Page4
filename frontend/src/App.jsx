@@ -1,7 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ROUTES from "./Routes/routes";
 import MainContext from "./context/context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 
